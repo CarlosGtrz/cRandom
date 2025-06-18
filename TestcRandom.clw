@@ -42,8 +42,10 @@ cnt2                LONG
     Debug('cRandom: '&cRandom(low,high))
   .   
 
-  Debug('RANDOM: '&cnt1&' in  '&clk1/100&' seconds. cRandom: '&cnt2&' in  '&clk2/100&' seconds.')
-  MESSAGE('RANDOM: '&cnt1&' in  '&clk1/100&' seconds. cRandom: '&cnt2&' in  '&clk2/100&' seconds.')
+  Debug('RANDOM: '&cnt1&' in '&clk1/100&' seconds ('&ROUND(cnt1/clk1*100,1)&'/s). cRandom: '&cnt2&' in '&clk2/100&' seconds ('&ROUND(cnt2/clk2*100,1)&'/s).')
+  MESSAGE('RANDOM: '&cnt1&' in '&clk1/100&' seconds ('&ROUND(cnt1/clk1*100,1)&'/s). cRandom: '&cnt2&' in '&clk2/100&' seconds ('&ROUND(cnt2/clk2*100,1)&'/s).')
+  
+  ASSERT(cnt2 = tests)
   
 Debug               PROCEDURE(STRING pText)
 cstr                  CSTRING(SIZE(pText)+1)
